@@ -22,10 +22,12 @@
   <script type="text/javascript">
     window.addEventListener('message', function (message) {
       const data = message.data;
+      console.log('dataaaaaaa', data);
       if (
         (message.origin.indexOf('//9.dev01-messages.textfree.us') > -1 || message.origin.indexOf('//messages.textfree.us') > -1)
         && data.type === 'redirect'
       ) {
+        console.log('si llegue man, si llegue');
         window.location.href = data.location
       }
     });
