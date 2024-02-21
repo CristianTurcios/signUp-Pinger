@@ -9,5 +9,26 @@
 </head>
 <body>
   <app-root></app-root>
+  <!-- <script>
+    window.addEventListener('message', receiveMessage, false);
+
+    function receiveMessage(event) {
+      if (event.origin === 'https://origin1.com') {
+        alert('Received message: ' + event.data);
+      }
+    }
+  </script> -->
+
+  <script type="text/javascript">
+    window.addEventListener('message', function (message) {
+      const data = message.data;
+      if (
+        (message.origin.indexOf('//9.dev01-messages.textfree.us') > -1 || message.origin.indexOf('//messages.textfree.us') > -1)
+        && data.type === 'redirect'
+      ) {
+        window.location.href = data.location
+      }
+    });
+  </script>
 </body>
 </html>
