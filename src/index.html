@@ -9,25 +9,20 @@
 </head>
 <body>
   <app-root></app-root>
-  <!-- <script>
-    window.addEventListener('message', receiveMessage, false);
-
-    function receiveMessage(event) {
-      if (event.origin === 'https://origin1.com') {
-        alert('Received message: ' + event.data);
-      }
-    }
-  </script> -->
-
   <script type="text/javascript">
     window.addEventListener('message', function (message) {
       const data = message.data;
-      console.log('dataaaaaaa', data);
       if (
-        (message.origin.indexOf('//9.dev01-messages.textfree.us') > -1 || message.origin.indexOf('//messages.textfree.us') > -1)
+        (
+          message.origin.indexOf('//7.dev01-messages.textfree.us') > -1 ||
+          message.origin.indexOf('//8.dev01-messages.textfree.us') > -1 ||
+          message.origin.indexOf('//9.dev01-messages.textfree.us') > -1 ||
+          message.origin.indexOf('//10.dev01-messages.textfree.us') > -1 ||
+          message.origin.indexOf('//messages.textfree.us') > -1
+        )
         && data.type === 'redirect'
       ) {
-        console.log('si llegue man, si llegue');
+        console.log('data', data);
         window.location.href = data.location
       }
     });
